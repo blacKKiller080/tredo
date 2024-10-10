@@ -11,7 +11,7 @@ Future<void> main() => MainRunner.run<AsyncAppDependencies>(
     );
 
 // void main() {
-//   // WidgetsFlutterBinding.ensureInitialized();
+//   // WidgtsFlutterBinding.ensureInitialized();
 //   // // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 //   // SystemChrome.setSystemUIOverlayStyle(
 //   //     const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
