@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_wrap_architecture/src/core/extension/extensions.dart';
-import 'package:flutter_wrap_architecture/src/core/resources/resources.dart';
-import 'package:flutter_wrap_architecture/src/features/app/router/app_router.dart';
-import 'package:flutter_wrap_architecture/src/features/app/widgets/custom/custom_tab_bar_widget.dart';
+import 'package:tredo/src/core/extension/extensions.dart';
+import 'package:tredo/src/core/resources/resources.dart';
+import 'package:tredo/src/features/app/router/app_router.dart';
+import 'package:tredo/src/features/app/widgets/custom/custom_tab_bar_widget.dart';
 
 // ignore: unused_element
 const _tag = 'Base';
@@ -47,7 +47,7 @@ class _BaseState extends State<Base> with TickerProviderStateMixin {
       routes: const [
         MainRoute(),
         SecondRoute(),
-        ThirdRoute(),
+        // ThirdRoute(),
         BaseProfileTab(),
       ],
       // extendBody: true,

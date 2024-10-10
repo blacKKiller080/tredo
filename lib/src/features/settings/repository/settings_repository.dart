@@ -1,6 +1,6 @@
-import 'package:flutter_wrap_architecture/src/features/settings/database/settings_dao.dart';
-import 'package:flutter_wrap_architecture/src/features/settings/enum/app_theme.dart';
-import 'package:flutter_wrap_architecture/src/features/settings/model/settings_data.dart';
+import 'package:tredo/src/features/settings/database/settings_dao.dart';
+import 'package:tredo/src/features/settings/enum/app_theme.dart';
+import 'package:tredo/src/features/settings/model/settings_data.dart';
 
 import 'package:pure/pure.dart';
 

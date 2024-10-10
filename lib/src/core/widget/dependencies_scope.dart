@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wrap_architecture/src/core/model/dependencies_storage.dart';
-import 'package:flutter_wrap_architecture/src/core/widget/scope.dart';
+import 'package:tredo/src/core/model/dependencies_storage.dart';
+import 'package:tredo/src/core/widget/scope.dart';
 
 class DependenciesScope extends Scope {
   static const DelegateAccess<_DependenciesScopeDelegate> _delegateOf =

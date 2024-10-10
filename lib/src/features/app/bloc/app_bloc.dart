@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_wrap_architecture/src/features/app/logic/not_auth_logic.dart';
-import 'package:flutter_wrap_architecture/src/features/auth/repository/auth_repository.dart';
+import 'package:tredo/src/features/app/logic/not_auth_logic.dart';
+import 'package:tredo/src/features/auth/repository/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_bloc.freezed.dart';
@@ -40,6 +40,7 @@ class AppBLoC extends Bloc<AppEvent, AppState> {
         exiting: (_Exiting event) async => _exit(event, emit),
         checkAuth: (_CheckAuth event) async => _checkAuth(event, emit),
         logining: (_Logining event) async => _login(event, emit),
+        registration: (_Registration event) async => _registration(event, emit),
         refreshLocal: (_RefreshLocal event) async => _refreshLocal(event, emit),
         startListenDio: (_StartListenDio event) async =>
             _startListenDio(event, emit),
@@ -144,6 +145,15 @@ class AppBLoC extends Bloc<AppEvent, AppState> {
     emit(const AppState.inAppState());
   }
 
+  Future<void> _registration(
+    _Registration event,
+    Emitter<AppState> emit,
+  ) async {
+    log('AppBloc _registration ', name: _tag);
+
+    emit(const AppState.registrationState());
+  }
+
   Future<void> _exit(
     _Exiting event,
     Emitter<AppState> emit,
@@ -224,6 +234,8 @@ class AppEvent with _$AppEvent {
 
   const factory AppEvent.logining() = _Logining;
 
+  const factory AppEvent.registration() = _Registration;
+
   const factory AppEvent.exiting() = _Exiting;
 
   const factory AppEvent.refreshLocal() = _RefreshLocal;
@@ -245,6 +257,8 @@ class AppState with _$AppState {
   const factory AppState.notAuthorizedState() = _NotAuthorizedState;
 
   const factory AppState.inAppState() = _InAppState;
+
+  const factory AppState.registrationState() = _RegistrationState;
 
   const factory AppState.errorState({required String message}) = _ErrorState;
 }

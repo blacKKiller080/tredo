@@ -1,4 +1,4 @@
-package com.example.flutter_wrap_architecture
+package com.example.tredo
 
 import io.flutter.embedding.android.FlutterActivity
 

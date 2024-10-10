@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -28,9 +29,13 @@ mixin MainRunner {
   }) async {
     ///
     WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+        // options: DefaultFirebaseOptions.currentPlatform,
+        );
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     final app = await _initApp(asyncDependencies, appBuilder);
+
     // await PlatformViewsService.synchronizeToNativeViewHierarchy(false);
     // debugRepaintRainbowEnabled = true;
 

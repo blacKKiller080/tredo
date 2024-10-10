@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495463397119",
+    "project_id": "tredo-fb589",
+    "storage_bucket": "tredo-fb589.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495463397119:android:c03fbac4b014b1633d3eca",
+        "android_client_info": {
+          "package_name": "com.example.tredo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADU0PjEfN1K9ISBFZNMce614pnfPefCxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

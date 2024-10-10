@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_wrap_architecture/src/core/extension/extensions.dart';
-import 'package:flutter_wrap_architecture/src/core/widget/bloc_scope.dart';
-import 'package:flutter_wrap_architecture/src/features/app/bloc/app_bloc.dart';
-import 'package:flutter_wrap_architecture/src/features/app/enum/app_language.dart';
-import 'package:flutter_wrap_architecture/src/features/settings/bloc/settings_bloc.dart';
-import 'package:flutter_wrap_architecture/src/features/settings/enum/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:pure/pure.dart';
+import 'package:tredo/src/core/extension/extensions.dart';
+import 'package:tredo/src/core/widget/bloc_scope.dart';
+import 'package:tredo/src/features/app/bloc/app_bloc.dart';
+import 'package:tredo/src/features/app/enum/app_language.dart';
+import 'package:tredo/src/features/auth/bloc/login_cubit.dart';
+import 'package:tredo/src/features/settings/bloc/settings_bloc.dart';
+import 'package:tredo/src/features/settings/enum/app_theme.dart';
 
 AppTheme _theme(SettingsState state) => state.data.theme;
 
@@ -70,6 +71,11 @@ class SettingsScope extends StatelessWidget {
           ),
           BlocProvider<AppBLoC>(
             create: (context) => AppBLoC(
+              context.repository.authRepository,
+            ),
+          ),
+          BlocProvider<LoginCubit>(
+            create: (context) => LoginCubit(
               context.repository.authRepository,
             ),
           ),

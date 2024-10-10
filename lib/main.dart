@@ -1,6 +1,6 @@
-import 'package:flutter_wrap_architecture/src/features/app/logic/main_runner.dart';
-import 'package:flutter_wrap_architecture/src/features/app/model/async_app_dependencies.dart';
-import 'package:flutter_wrap_architecture/src/features/app/presentation/app_name.dart';
+import 'package:tredo/src/features/app/logic/main_runner.dart';
+import 'package:tredo/src/features/app/model/async_app_dependencies.dart';
+import 'package:tredo/src/features/app/presentation/app_name.dart';
 
 Future<void> main() => MainRunner.run<AsyncAppDependencies>(
       asyncDependencies: AsyncAppDependencies.obtain,

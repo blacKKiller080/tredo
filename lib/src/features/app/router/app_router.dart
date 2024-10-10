@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_wrap_architecture/src/features/app/presentation/launcher.dart';
-import 'package:flutter_wrap_architecture/src/features/client/fourth_page/fourth_page.dart';
-import 'package:flutter_wrap_architecture/src/features/client/main_page/main_page.dart';
-import 'package:flutter_wrap_architecture/src/features/client/second_page/second_page.dart';
-import 'package:flutter_wrap_architecture/src/features/client/third_page/third_page.dart';
+import 'package:tredo/src/features/app/presentation/launcher.dart';
+import 'package:tredo/src/features/auth/presentation/registration_page.dart';
+import 'package:tredo/src/features/client/fourth_page/fourth_page.dart';
+import 'package:tredo/src/features/client/main_page/main_page.dart';
+import 'package:tredo/src/features/client/second_page/second_page.dart';
+import 'package:tredo/src/features/auth/presentation/login_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -87,7 +88,8 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: MainRoute.page),
             AutoRoute(page: SecondRoute.page),
-            AutoRoute(page: ThirdRoute.page),
+            AutoRoute(page: LoginRoute.page),
+            AutoRoute(page: RegistrationRoute.page),
             AutoRoute(
               page: BaseProfileTab.page,
               children: [
