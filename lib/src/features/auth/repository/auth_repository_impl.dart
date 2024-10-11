@@ -53,6 +53,16 @@ class AuthRepositoryImpl extends IAuthRepository {
       );
 
   @override
+  Future<Result<String>> registrationFirebase({
+    required String login,
+    required String password,
+  }) async =>
+      _remoteDS.registrationFirebase(
+        login: login,
+        password: password,
+      );
+
+  @override
   Future<bool> clearUser() async {
     final bool userFlag = await _authDao.user.remove();
     // final bool tokenFlag = await _authDao.accessToken.remove();

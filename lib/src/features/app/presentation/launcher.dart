@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tredo/src/core/extension/extensions.dart';
@@ -68,7 +69,9 @@ class _LauncherState extends State<Launcher> with WidgetsBindingObserver {
         BlocListener<AppBLoC, AppState>(
           listener: (context, state) {
             state.whenOrNull(
-              notAuthorizedState: () {},
+              notAuthorizedState: () async {
+                await FirebaseAuth.instance.signOut();
+              },
               inAppState: () {},
               errorState: (message) {},
             );

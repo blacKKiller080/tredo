@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:tredo/src/features/app/presentation/launcher.dart';
 import 'package:tredo/src/features/auth/presentation/registration_page.dart';
-import 'package:tredo/src/features/client/fourth_page/fourth_page.dart';
+import 'package:tredo/src/features/client/fourth_page/presentation/chat_page.dart';
 import 'package:tredo/src/features/client/main_page/main_page.dart';
 import 'package:tredo/src/features/client/second_page/second_page.dart';
 import 'package:tredo/src/features/auth/presentation/login_page.dart';
@@ -90,12 +91,7 @@ class AppRouter extends _$AppRouter {
             AutoRoute(page: SecondRoute.page),
             AutoRoute(page: LoginRoute.page),
             AutoRoute(page: RegistrationRoute.page),
-            AutoRoute(
-              page: BaseProfileTab.page,
-              children: [
-                AutoRoute(page: FourthRoute.page, initial: true),
-              ],
-            ),
+
             // AutoRoute<void>(
             //   page: ProfilePage,
             //   initial: true,
@@ -105,6 +101,7 @@ class AppRouter extends _$AppRouter {
             // ),
           ],
         ),
+        AutoRoute(page: ChatRoute.page),
       ];
 }
 

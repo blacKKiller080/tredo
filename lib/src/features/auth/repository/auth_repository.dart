@@ -15,4 +15,9 @@ abstract class IAuthRepository {
     required String login,
     required String password,
   });
+
+  Future<Result<String>> registrationFirebase({
+    required String login,
+    required String password,
+  });
 }

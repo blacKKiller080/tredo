@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
         state.whenOrNull(
           initialState: () {},
           loadingState: () {},
-          loadedState: (user) {
+          loadedState: (user, userList) {
             log('Success - $user');
             context.appBloc.add(const AppEvent.logining());
           },
@@ -78,14 +78,19 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(
                         left: 16,
                         right: 16,
-                        top: 200,
+                        top: 150,
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          const Text(
+                            'Login Page',
+                            style: AppTextStyles.os32w700,
+                          ),
                           CommonInput(
                             'Email',
                             controller: _emailController,
+                            margin: const EdgeInsets.only(top: 50),
                             textInputAction: TextInputAction.next,
                             onChanged: (value) {
                               if (_emailController.text.isNotEmpty &&

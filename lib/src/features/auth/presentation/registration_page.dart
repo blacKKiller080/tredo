@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tredo/src/core/extension/extensions.dart';
+import 'package:tredo/src/core/resources/resources.dart';
 import 'package:tredo/src/features/app/bloc/app_bloc.dart';
 import 'package:tredo/src/features/app/widgets/custom/common_button.dart';
 import 'package:tredo/src/features/app/widgets/custom/common_input.dart';
@@ -39,8 +41,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
         state.whenOrNull(
           initialState: () {},
           loadingState: () {},
-          loadedState: (user) {
+          loadedState: (user, userList) {
             log('Success - $user');
+            context.appBloc.add(const AppEvent.logining());
           },
           errorState: (message) {
             log('error - $message');
@@ -80,20 +83,27 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         top: 16,
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CustomBackButton(
-                            onTap: () => context.appBloc
-                                .add(const AppEvent.refreshLocal()),
-                            padding: const EdgeInsets.only(
-                              top: 10,
-                              right: 15,
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: CustomBackButton(
+                              onTap: () => context.appBloc
+                                  .add(const AppEvent.refreshLocal()),
+                              padding: const EdgeInsets.only(
+                                top: 10,
+                                right: 15,
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 160),
+                          const SizedBox(height: 100),
+                          const Text(
+                            'Registration Page',
+                            style: AppTextStyles.os32w700,
+                          ),
                           CommonInput(
                             'Email',
                             controller: _emailController,
+                            margin: const EdgeInsets.only(top: 60),
                             textInputAction: TextInputAction.next,
                             onChanged: (value) {
                               if (_emailController.text.isNotEmpty &&
@@ -124,7 +134,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           CommonButton(
                             onPressed: () {
                               FocusScope.of(context).unfocus();
-                              BlocProvider.of<LoginCubit>(context).login(
+                              BlocProvider.of<LoginCubit>(context).registration(
                                 login: _emailController.text,
                                 password: _passwordController.text,
                               );

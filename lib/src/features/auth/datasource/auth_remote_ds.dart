@@ -21,6 +21,11 @@ abstract class IAuthRemoteDS {
     required String login,
     required String password,
   });
+
+  Future<Result<String>> registrationFirebase({
+    required String login,
+    required String password,
+  });
 }
 
 class AuthRemoteDSImpl implements IAuthRemoteDS {
@@ -70,10 +75,32 @@ class AuthRemoteDSImpl implements IAuthRemoteDS {
         email: login,
         password: password,
       );
-      return Result.success('response');
+      return const Result.success('success');
     } catch (e) {
       if (kDebugMode) {
-        l.d('login remote=> ${NetworkException.type(error: e.toString())}');
+        l.d('loginFirebase remote=> ${NetworkException.type(error: e.toString())}');
+      }
+
+      return Result<String>.failure(
+        NetworkException.type(error: e.toString()),
+      );
+    }
+  }
+
+  @override
+  Future<Result<String>> registrationFirebase({
+    required String login,
+    required String password,
+  }) async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: login,
+        password: password,
+      );
+      return const Result.success('success');
+    } catch (e) {
+      if (kDebugMode) {
+        l.d('registrationFirebase remote=> ${NetworkException.type(error: e.toString())}');
       }
 
       return Result<String>.failure(
